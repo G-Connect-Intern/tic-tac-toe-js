@@ -3,14 +3,14 @@ let tempWinCase = []
 
 
 function handleResult() {
-    let n = 3 // size of table (3x3)
-    let l_win = 3 // ăn 3 thì thắng
+    let sizeOfTable = 3 // size of table (3x3)
+    let lengthToWin = 3 // ăn 3 thì thắng
 
     // Case 1 hàng ngang
-    for (let i = 1; i <= n * n; i++) {
-        if (n - i % n >= l_win - 1 && i % n != 0) {
+    for (let i = 1; i <= sizeOfTable * sizeOfTable; i++) {
+        if (sizeOfTable - i % sizeOfTable >= lengthToWin - 1 && i % sizeOfTable != 0) {
             tempWinCase = []
-            for (let j = i; j < i + l_win; j++) {
+            for (let j = i; j < i + lengthToWin; j++) {
                 tempWinCase.push(j)
             }
             listWinCase.push(tempWinCase)
@@ -18,11 +18,11 @@ function handleResult() {
     }
 
     // Case đường chéo phụ
-    for (let i = l_win; i <= n * n; i++) {
-        if (i % n >= l_win || i % n == 0) {
-            if (i < n * n - (n * (l_win - 1) - 1)) {
+    for (let i = lengthToWin; i <= sizeOfTable * sizeOfTable; i++) {
+        if (i % sizeOfTable >= lengthToWin || i % sizeOfTable == 0) {
+            if (i < sizeOfTable * sizeOfTable - (sizeOfTable * (lengthToWin - 1) - 1)) {
                 tempWinCase = []
-                for (let j = i; j <= i + (n - 1) * (l_win - 1); j += n - 1) {
+                for (let j = i; j <= i + (sizeOfTable - 1) * (lengthToWin - 1); j += sizeOfTable - 1) {
                     tempWinCase.push(j);
                 }
                 listWinCase.push(tempWinCase)
@@ -31,11 +31,11 @@ function handleResult() {
     }
 
     // Case đường chéo chính
-    for (let i = 1; i <= n * n; i++) {
-        if (n - i % n >= l_win - 1 && i % n != 0) {
-            if (i < n * n - (n * (l_win - 1) - 1)) {
+    for (let i = 1; i <= sizeOfTable * sizeOfTable; i++) {
+        if (sizeOfTable - i % sizeOfTable >= lengthToWin - 1 && i % sizeOfTable != 0) {
+            if (i < sizeOfTable * sizeOfTable - (sizeOfTable * (lengthToWin - 1) - 1)) {
                 tempWinCase = []
-                for (let j = i; j <= i + (n + 1) * (l_win - 1); j += n + 1) {
+                for (let j = i; j <= i + (sizeOfTable + 1) * (lengthToWin - 1); j += sizeOfTable + 1) {
                     tempWinCase.push(j);
                 }
                 listWinCase.push(tempWinCase)
@@ -44,10 +44,10 @@ function handleResult() {
     }
 
     // Case hàng dọc
-    for (let i = 1; i < n * n - (n * (l_win - 1) - 1); i++) {
+    for (let i = 1; i < sizeOfTable * sizeOfTable - (sizeOfTable * (lengthToWin - 1) - 1); i++) {
 
         tempWinCase = []
-        for (let j = i; j <= i + n * (l_win - 1); j += n) {
+        for (let j = i; j <= i + sizeOfTable * (lengthToWin - 1); j += sizeOfTable) {
             tempWinCase.push(j);
         }
         listWinCase.push(tempWinCase)
